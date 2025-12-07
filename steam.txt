@@ -1,0 +1,30 @@
+[h1]ZBMacOSHideMenuBar[/h1]
+
+Fixes the macOS menu bar issue in borderless windowed mode.
+
+[b]The Problem:[/b]
+The vanilla game on macOS in borderless windowed mode still displays the macOS menu bar, which hides part of the game screen and reduces the usable display area.
+
+[b]The Solution:[/b]
+This mod automatically hides the macOS menu bar when borderless windowed mode is enabled, and restores it when disabled. The game window is also properly positioned to avoid the menu bar area.
+
+[b]Features:[/b]
+[list]
+[*] Automatically hides macOS menu bar in borderless windowed mode
+[*] Properly positions game window to avoid menu bar overlap
+[*] Automatically restores menu bar when borderless mode is disabled
+[*] Only activates on macOS (no effect on other operating systems)
+[/list]
+
+[b]Requirements:[/b]
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3378285185]ZombieBuddy[/url] - Required framework
+
+[b]Platform:[/b]
+macOS only
+
+[b]Links:[/b]
+[url=https://github.com/zed-0xff/ZBMacOSHideMenuBar]GitHub Repository[/url]
+
+[b]☕ Support the Developer:[/b]
+[url=https://ko-fi.com/zed_0xff][img]https://i.imgur.com/Utx6OIH.png[/img][/url]
+

@@ -1,0 +1,8 @@
+name=ZBMacOsHideMenuBar
+id=ZBMacOsHideMenuBar
+author=zed-0xff
+url=https://github.com/zed-0xff/ZBMacOSHideMenuBar
+
+require=\ZombieBuddy
+javaJarFile=media/java/client/build/libs/client.jar
+javaPkgName=me.zed_0xff.zb_mac_os_hide_menu_bar
