@@ -117,6 +117,13 @@ ZBMacOSHideMenuBar/
 - **GitHub**: https://github.com/zed-0xff/ZBMacOSHideMenuBar
 - **ZombieBuddy Framework**: [ZombieBuddy](https://github.com/zed-0xff/ZombieBuddy) - The framework this mod is built on
 
+## Related Mods
+
+Other mods built with ZombieBuddy:
+
+- **[ZBHelloWorld](https://github.com/zed-0xff/ZBHelloWorld)**: A simple example mod demonstrating patches-only mods and UI patching
+- **[ZBetterWorkshopUpload](https://github.com/zed-0xff/ZBetterWorkshopUpload)**: Filters unwanted files from Steam Workshop uploads and provides upload previews
+
 ## License
 
 See LICENSE file for details (if present).
