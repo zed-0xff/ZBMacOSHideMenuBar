@@ -17,7 +17,7 @@ This mod automatically hides the macOS menu bar when borderless windowed mode is
 [/list]
 
 [b]Requirements:[/b]
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3378285185]ZombieBuddy[/url] - Required framework
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3619862853]ZombieBuddy[/url] - Required framework
 
 [b]Platform:[/b]
 macOS only
