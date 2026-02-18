@@ -6,6 +6,7 @@ import org.lwjglx.opengl.Display;
 import org.lwjgl.glfw.GLFW;
 
 import zombie.core.Core;
+import zombie.core.opengl.RenderThread;
 
 public class Main {
     @Patch(className = "org.lwjglx.opengl.Display", methodName = "setBorderlessWindow")
@@ -28,12 +29,14 @@ public class Main {
 
     public static void fixMenuBarAndPos() {
         if (Display.isCreated()) {
-            MacOSMenuBarHelper.hideMenuBarIfNeeded();
+            RenderThread.invokeOnRenderContext(() -> {
+                MacOSMenuBarHelper.hideMenuBarIfNeeded();
 
             // Move window to (0,0) to avoid menu bar area
             long windowHandle = Display.getWindow();
             if (windowHandle != 0)
                 GLFW.glfwSetWindowPos(windowHandle, 0, 0);
+            });
         }
     }
 

@@ -14,12 +14,12 @@ public class MacOSMenuBarHelper {
     private static final int NSApplicationPresentationHideMenuBar = 2;
     private static final int NSApplicationPresentationHideDock = 4;
 
-    private static long nsApp = 0;
-    private static long setPresentationOptionsSel = 0;
-    private static long objc_msgSend = 0;
-    private static boolean initialized = false;
+    private static volatile long nsApp = 0;
+    private static volatile long setPresentationOptionsSel = 0;
+    private static volatile long objc_msgSend = 0;
+    private static volatile boolean initialized = false;
 
-    private static void initialize() {
+    private static synchronized void initialize() {
         if (initialized || !IS_MACOS) {
             return;
         }
