@@ -1,26 +1,8 @@
 plugins { id 'java' }
 
 // Detect OS and set game paths accordingly
-def osName = System.getProperty("os.name").toLowerCase()
 def HOME_DIR = System.getProperty("user.home")
-def GAME_DIR
-def GAME_JAVA_DIR
-
-if (osName.contains("mac")) {
-    // macOS
-    GAME_DIR = "${HOME_DIR}/Library/Application Support/Steam/steamapps/common/ProjectZomboid/Project Zomboid.app"
-    GAME_JAVA_DIR = "${GAME_DIR}/Contents/Java"
-} else if (osName.contains("win")) {
-    // Windows - try common Steam installation paths
-    def programFiles = System.getenv("ProgramFiles(x86)") ?: System.getenv("ProgramFiles")
-    def steamPath = System.getenv("SteamPath") ?: "${programFiles}\\Steam"
-    GAME_DIR = "${steamPath}\\steamapps\\common\\ProjectZomboid"
-    GAME_JAVA_DIR = "${GAME_DIR}"
-} else {
-    // Linux
-    GAME_DIR = "${HOME_DIR}/.steam/steam/steamapps/common/ProjectZomboid"
-    GAME_JAVA_DIR = "${GAME_DIR}/projectzomboid/java"
-}
+def GAME_JAVA_DIR = "${HOME_DIR}/projects/zomboid/42_12/java"
 
 dependencies {
     compileOnly files("${GAME_JAVA_DIR}/ZombieBuddy.jar")
