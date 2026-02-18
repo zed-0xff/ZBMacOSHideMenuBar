@@ -20,6 +20,7 @@ When playing Project Zomboid on macOS in borderless windowed mode, the macOS men
 
 ZBMacOSHideMenuBar automatically:
 - Hides the macOS menu bar when borderless windowed mode is enabled
+- Removes the thin 1px border around the window (e.g. on macOS 15+) by disabling the window shadow
 - Moves the game window to position (0,0) to ensure proper positioning
 - Restores the menu bar when borderless windowed mode is disabled
 - Only activates on macOS (no effect on other operating systems)
@@ -43,8 +44,9 @@ ZBMacOSHideMenuBar uses [ZombieBuddy](https://github.com/zed-0xff/ZombieBuddy) t
 
 1. **Intercepts borderless window setting**: Patches `Display.setBorderlessWindow()` to detect when borderless mode is enabled/disabled
 2. **Hides menu bar**: Uses macOS Objective-C runtime to call `NSApplication.setPresentationOptions()` with `NSApplicationPresentationHideMenuBar`
-3. **Positions window**: Moves the window to (0,0) to ensure it's properly positioned
-4. **Restores menu bar**: Automatically restores the menu bar when borderless mode is disabled
+3. **Removes 1px border**: Calls `[NSWindow setHasShadow:NO]` to remove the thin border that appears on borderless windows (e.g. macOS 15+)
+4. **Positions window**: Moves the window to (0,0) to ensure it's properly positioned
+5. **Restores menu bar**: Automatically restores the menu bar when borderless mode is disabled
 
 ### Technical Details
 
