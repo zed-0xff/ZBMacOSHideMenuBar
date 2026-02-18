@@ -1,5 +1,6 @@
 package me.zed_0xff.zb_mac_os_hide_menu_bar;
 
+import org.lwjgl.glfw.GLFWNativeCocoa;
 import org.lwjgl.system.JNI;
 import org.lwjgl.system.macosx.ObjCRuntime;
 import org.lwjglx.opengl.Display;
@@ -120,6 +121,30 @@ public class MacOSMenuBarHelper {
     public static void showMenuBarIfNeeded() {
         if (IS_MACOS && Display.isCreated()) {
             showMenuBar();
+        }
+    }
+
+    /**
+     * Disables the window shadow to remove the thin 1px border on macOS borderless windows
+     * (e.g. on macOS 15/26). Call with the GLFW window handle.
+     */
+    public static void disableWindowShadow(long windowHandle) {
+        if (!IS_MACOS || windowHandle == 0) {
+            return;
+        }
+        initialize();
+        if (!initialized || objc_msgSend == 0) {
+            return;
+        }
+        try {
+            long cocoaWindow = GLFWNativeCocoa.glfwGetCocoaWindow(windowHandle);
+            if (cocoaWindow == 0) return;
+            long setHasShadowSel = ObjCRuntime.sel_registerName("setHasShadow:");
+            if (setHasShadowSel == 0) return;
+            // [window setHasShadow:NO] - BOOL NO = 0
+            JNI.invokePPPI(cocoaWindow, setHasShadowSel, 0, objc_msgSend);
+        } catch (Exception e) {
+            DebugLog.log("Failed to disable window shadow: " + e.getMessage());
         }
     }
 }

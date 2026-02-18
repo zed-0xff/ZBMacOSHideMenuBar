@@ -3,3 +3,6 @@
 *.log
 *.tmp
 *.swp
+
+build
+tmp

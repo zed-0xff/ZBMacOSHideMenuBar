@@ -32,10 +32,13 @@ public class Main {
             RenderThread.invokeOnRenderContext(() -> {
                 MacOSMenuBarHelper.hideMenuBarIfNeeded();
 
-            // Move window to (0,0) to avoid menu bar area
-            long windowHandle = Display.getWindow();
-            if (windowHandle != 0)
-                GLFW.glfwSetWindowPos(windowHandle, 0, 0);
+                // Move window to (0,0) to avoid menu bar area
+                long windowHandle = Display.getWindow();
+                if (windowHandle != 0) {
+                    GLFW.glfwSetWindowPos(windowHandle, 0, 0);
+                    // Remove thin 1px border on macOS borderless windows (e.g. macOS 15+)
+                    MacOSMenuBarHelper.disableWindowShadow(windowHandle);
+                }
             });
         }
     }
