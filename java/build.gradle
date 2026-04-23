@@ -3,9 +3,7 @@ plugins {
     id 'io.github.zed-0xff.zb-gradle-plugin' version '1.0.1'
 }
 
-def osName = System.getProperty("os.name").toLowerCase()
-def HOME_DIR = System.getProperty("user.home")
-
+def HOME_DIR     = System.getProperty("user.home")
 def CUR_GAME_DIR = "${HOME_DIR}/Library/Application Support/Steam/steamapps/common/ProjectZomboid/Project Zomboid.app/Contents/Java"
 
 // ZVersion: dotted game version (e.g. 41, 42.12, 42.13) — drives GAME_DIR, archiveBaseName, and source variant
