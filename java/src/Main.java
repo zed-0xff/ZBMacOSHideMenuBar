@@ -1,6 +1,6 @@
 package me.zed_0xff.zb_mac_os_hide_menu_bar;
 
-import me.zed_0xff.zombie_buddy.Patch;
+import me.zed_0xff.zombie_buddy.annotations.Patch;
 
 import org.lwjglx.opengl.Display;
 import org.lwjgl.glfw.GLFW;
